@@ -6,7 +6,7 @@ This project demonstrates UI precision, clean code structure, accessibility, and
 ---
 
 ## 🔗 Live Demo  
-👉 *(Add your Vercel deployment link here)*
+👉 *https://frontend-intern-assignment-eta.vercel.app/*
 
 ## 📦 GitHub Repository  
 👉 *https://github.com/Mradull/frontend-intern-assignment*
