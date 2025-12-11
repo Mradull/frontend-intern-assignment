@@ -1,73 +1,135 @@
-# React + TypeScript + Vite
+📘 Frontend Intern Assignment – Quiz Interface (Figma → React Implementation)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a pixel-perfect implementation of the given Figma design for a multi-step quiz interface. It includes interactive navigation, animated progress tracking, and a final score screen with a polished UI using React, TypeScript, and TailwindCSS.
 
-Currently, two official plugins are available:
+🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+(Add your deployed Vercel/Netlify link here)
 
-## React Compiler
+📦 Tech Stack Used
+Core Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React (TypeScript) – Component-based architecture and type-safety
 
-## Expanding the ESLint configuration
+Vite – Super fast development bundler
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Tailwind CSS – Utility-first styling and responsive design
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Framer Motion (if used) – Smooth animations and transitions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Additional Tools / Libraries
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+clsx – Conditional class merging
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Custom SVG assets – For speech bubble and icons
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+GIF assets – For the paw animation used in the UI
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🧩 Features Implemented
+✔ 1. Pixel-Perfect UI
+
+Fully matches the provided Figma layout:
+
+Outer gradient background
+
+Large rounded frame
+
+Inner main rectangle (1542×856px)
+
+Speech bubble SVG
+
+Paw GIF placement
+
+Typography, gradient headings, spacing
+
+✔ 2. Multi-Step Quiz Flow
+
+Each question appears on a separate screen
+
+Navigation:
+
+First question: only Back (disabled look) + Next
+
+Middle questions: Back + Next
+
+Last question: Submit only
+
+Keyboard navigation support (optional)
+
+✔ 3. Segmented Progress Bar
+
+4-segment bar updates dynamically based on answered questions
+
+Smooth visual transition
+
+Matches Figma segment spacing
+
+✔ 4. Styled Option Cards
+
+Options use exact Figma sizes (896×78px)
+
+Gradient, hover state, and selected states implemented
+
+Border colors extracted from design
+
+✔ 5. Final Result Screen
+
+Shows dynamic score calculation
+
+Restart button resets all state
+
+Percentage animation (if implemented)
+
+✔ 6. Fully Responsive (Desktop Only Required)
+
+Although desktop was required, layout gracefully downscales for smaller screens.
+
+🛠 Setup Instructions
+
+Follow these steps to run the project locally.
+
+1. Clone the repository
+git clone https://github.com/your-username/frontend-intern-assignment.git
+cd frontend-intern-assignment
+
+2. Install dependencies
+npm install
+
+3. Start development server
+npm run dev
+
+
+Vite will provide a local URL, usually:
+
+http://localhost:5173
+
+4. Build for production
+npm run build
+
+5. Preview production build
+npm run preview
+
+📐 Assumptions Made
+
+The quiz will always have 4 questions, matching the Figma design
+
+The UI is primarily for desktop screens (Figma design dimensions 1920px canvas)
+
+Speech bubble and paw graphic were interpreted and rebuilt using SVG + GIF
+
+No backend or API integration was required; all data is local
+
+User accessibility improvements (focus rings, keyboard nav) were added where appropriate
+
+Time spent was optimized for design accuracy over mobile responsiveness
+
+⏱ Time Spent on the Assignment
+Task	Duration
+Project setup (Vite, Tailwind, structure)	30 min
+Building layout & card structure	1.5 hrs
+Pixel-perfect styling, gradients, shadows	2 hrs
+Quiz logic (state, navigation, validation)	1.5 hrs
+Progress bar + animations	45 min
+Result screen implementation	30 min
+Debugging, refinement, cleanup	1 hr
+Total Time Spent	7–8 hours
