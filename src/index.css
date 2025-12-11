@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Design tokens / globals
+   ========================= */
+:root {
+  --card-width: 1100px; /* legacy; many components use fixed widths from Figma */
+  --option-width: 896px;
+  --option-height: 78px;
+  --main-card-w: 1542px;
+  --main-card-h: 856px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* =========================
+   Outer background & frames
+   ========================= */
+
+/* Outer gradient background (four color stops provided) */
+.outer-bg {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  /* radial gradient tuned to match Figma feel using provided colors */
+  background: radial-gradient(1200px 500px at 10% 30%, #BECFEE 0%, #71C6E2 30%, #D9F4FA 70%, #BECFEE 100%);
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* Large rounded framed rectangle behind the main card */
+.outer-frame {
+  position: relative;
+  width: calc(100% - 160px);
+  max-width: 1720px;
+  padding: 28px;
+  border-radius: 36px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(240,252,255,0.85));
+  box-shadow:
+    0 18px 40px rgba(11,39,80,0.12),
+    inset 0 12px 30px rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main rectangle (exact Figma measurements) */
+.main-rect {
+  width: var(--main-card-w);    /* 1542px */
+  height: var(--main-card-h);   /* 856px */
+  background: #F4FDFF;          /* exact color */
+  border-radius: 42px;          /* exact radius */
+  box-shadow: inset 0 6px 12px rgba(255,255,255,0.6), 0 12px 40px rgba(11,72,110,0.06);
+  padding: 56px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+
+
+/* =========================
+   Heading / title styles
+   ========================= */
+
+/* Gradient italic heading (Playfair Display) */
+.h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(90deg, #15313D, #3CABDA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 0;
+}
+
+/* Subtitle pill (Answer all questions...) — color explicitly black */
+.pill {
+  display: inline-block;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(10,10,10,0.04);
+  font-size: 13px;
+  color: #000000; /* made black as requested */
+}
+
+/* =========================
+   Progress segments (4-part)
+   ========================= */
+.progress-segments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* Each segment — width adjustable; match Figma look */
+.progress-segments .segment {
+  width: 120px;
+  height: 6px;
+  border-radius: 6px;
+  background: #e6eef0; /* empty color */
+  transition: background .3s ease, transform .18s ease;
+}
+
+.progress-segments .segment.filled {
+  background: #0f4b56; /* filled segment color */
+}
+
+/* =========================
+   Option card styles
+   ========================= */
+
+/* Base option */
+.option {
+  width: 896px;
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  border: 1px solid #96E5FF;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  background: #FFFFFF;
+  text-align: center;
+
+  transition: background .18s ease, box-shadow .18s ease, border .18s ease;
+  box-sizing: border-box;
+}
+
+/* Hover effect */
+.option:hover {
+  background: #E5F8FF;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Selected gradient */
+.option-selected {
+  background: linear-gradient(90deg, #C6E9F7, #E5F8FF);
+  border-color: #96E5FF;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+
+/* Accessibility focus ring */
+.option:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(150,229,255,0.18);
+}
+
+/* ===== small responsive tweak: ensure options don't overflow on small screens ===== */
+@media (max-width: 980px) {
+  .option {
+    width: calc(100% - 40px);
+  }
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+/* small navigation buttons with minimum size for icon visibility */
+.small-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(11,72,110,0.06);
+  background: #ffffff;
+  color: #0f4b56;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s, opacity .12s;
+}
+
+.small-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Submit button exact size requested */
+.submit-btn {
+  width: 141px;
+  height: 50px;
+  background: #0B72FF;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* utility primary override (kept for compatibility) */
+.bg-primary {
+  background: #0B72FF !important;
+}
+
+/* Arrow button base (fixed size + large padding as requested) */
+/* Compact arrow button: exact outer size 53x50 */
+.arrow-btn {
+  width: 53px;                 /* outer width */
+  height: 50px;                /* outer height */
+  box-sizing: border-box;      /* include border/padding in size */
+  padding: 0;                  /* no big internal padding */
+  border-radius: 10px;
+  border: 1px solid rgba(150,229,255,0.05); /* subtle border */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #C6E9F7, #E5F8FF);
+  cursor: pointer;
+  transition: opacity .18s ease, transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 4px 10px rgba(11,72,110,0.04);
+  color: #0f4b56;
+  gap: 6px;
+  font-weight: 600;
+}
+
+/* Icon wrapper stays same (keeps SVG centered) */
+.arrow-icon {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  line-height:0;
+}
+
+/* Disabled / faded previous arrow for Q1 */
+.arrow-disabled {
+  opacity: 0.30;
+  pointer-events: none;
+}
+
+/* Rotate previous arrow */
+.arrow-prev {
+  transform: rotate(180deg);
+}
+
+/* ensure submit button styling doesn't clash */
+.submit-btn {
+  width: 141px;
+  height: 50px;
+  
+  background: linear-gradient(90deg, #C6E9F7, #E5F8FF); /* gradient like arrows */
+  border-radius: 10px;
+
+  border: 1px solid rgba(150,229,255,0.05); /* matches arrow border */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-weight: 600;
+  color: #0f4b56;  /* Figma-style text color */
+  cursor: pointer;
+
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(11,72,110,0.08);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* When arrow is hovered and is active, slightly lift */
+.arrow-btn:not(.arrow-disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(11,72,110,0.08);
+}
+
+/* make sure these don't break layout in small screens — allow wrapping */
+.bottom-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   Progress track (legacy — optional)
+   ========================= */
+.progress-track {
+  height: 8px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 8px;
+}
+.progress-fill {
+  height: 8px;
+  background: linear-gradient(90deg,#0f4b56,#69c5d9);
+  border-radius: 8px;
+}
+
+/* =========================
+   Paw GIF + Speech bubble (positioned relative to main-rect)
+   ========================= */
+
+/* NOTE: coordinates below were supplied as absolute canvas positions.
+   For a more robust layout we position these relative to the .main-rect by
+   using calc() based on the main-rect top-left. If you prefer absolute page
+   coordinates instead, move .paw-gif and .speech-bubble outside of .main-rect. */
+
+/* Paw (size as specified) — positioned relative to the page by default;
+   you can nest inside .outer-frame to keep it centered with the card */
+/* Paw inside main card */
+.paw-inside {
+  position: absolute;
+  width: 173.45px;
+  height: 173.45px;
+
+  /* relative to MAIN RECTANGLE now */
+  bottom: -10px;
+  left: 45px;
+
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Speech bubble */
+.bubble-inside {
+  position: absolute;
+  width: 196.5px;
+  height: 96.05px;
+
+  bottom: 120px; /* sits above the paw */
+  left: 30px;
+
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  font-weight: 700;
+  color: #0b3b4b;
+
+  transform: rotate(-3deg); /* Match Figma tilt */
+  z-index: 4;
+}
+
+
+/* hide absolute assets on narrow screens to avoid overflow */
+@media (max-width: 1400px) {
+  .paw-gif, .speech-bubble {
+    display: none;
+  }
+  .main-rect {
+    width: calc(100% - 120px);
+    height: auto;
+    min-height: 600px;
+    padding: 36px;
+  }
+}
+
+.bubble-wrapper {
+  position: absolute;
+  left: 30px;      /* adjust these to match Figma */
+  bottom: 120px;
+  transform: rotate(-3deg);
+  z-index: 40;
+}
+
+.bubble-svg {
+  display: block;
+}
+
+
+/* =========================
+   Small helpers / utility tweaks
+   ========================= */
+.h-center { text-align: center; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-10 { margin-top: 2.5rem; }
+
+/* ensure form controls are keyboard-friendly */
+button, [role="button"] { -webkit-tap-highlight-color: transparent; }
