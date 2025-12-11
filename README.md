@@ -1,135 +1,119 @@
-📘 Frontend Intern Assignment – Quiz Interface (Figma → React Implementation)
+# 🌟 Frontend Intern Assignment
 
-This project is a pixel-perfect implementation of the given Figma design for a multi-step quiz interface. It includes interactive navigation, animated progress tracking, and a final score screen with a polished UI using React, TypeScript, and TailwindCSS.
+A pixel-perfect implementation of the provided Figma design using **React (TypeScript), Vite, TailwindCSS**, and custom SVG/GIF assets.  
+This project demonstrates UI precision, clean code structure, accessibility, and interactive quiz logic.
 
-🚀 Live Demo
+---
 
-(Add your deployed Vercel/Netlify link here)
+## 🔗 Live Demo  
+👉 *(Add your Vercel deployment link here)*
 
-📦 Tech Stack Used
-Core Technologies
+## 📦 GitHub Repository  
+👉 *https://github.com/Mradull/frontend-intern-assignment*
 
-React (TypeScript) – Component-based architecture and type-safety
+---
+# 🛠 Setup Instructions
 
-Vite – Super fast development bundler
-
-Tailwind CSS – Utility-first styling and responsive design
-
-Framer Motion (if used) – Smooth animations and transitions
-
-Additional Tools / Libraries
-
-clsx – Conditional class merging
-
-Custom SVG assets – For speech bubble and icons
-
-GIF assets – For the paw animation used in the UI
-
-🧩 Features Implemented
-✔ 1. Pixel-Perfect UI
-
-Fully matches the provided Figma layout:
-
-Outer gradient background
-
-Large rounded frame
-
-Inner main rectangle (1542×856px)
-
-Speech bubble SVG
-
-Paw GIF placement
-
-Typography, gradient headings, spacing
-
-✔ 2. Multi-Step Quiz Flow
-
-Each question appears on a separate screen
-
-Navigation:
-
-First question: only Back (disabled look) + Next
-
-Middle questions: Back + Next
-
-Last question: Submit only
-
-Keyboard navigation support (optional)
-
-✔ 3. Segmented Progress Bar
-
-4-segment bar updates dynamically based on answered questions
-
-Smooth visual transition
-
-Matches Figma segment spacing
-
-✔ 4. Styled Option Cards
-
-Options use exact Figma sizes (896×78px)
-
-Gradient, hover state, and selected states implemented
-
-Border colors extracted from design
-
-✔ 5. Final Result Screen
-
-Shows dynamic score calculation
-
-Restart button resets all state
-
-Percentage animation (if implemented)
-
-✔ 6. Fully Responsive (Desktop Only Required)
-
-Although desktop was required, layout gracefully downscales for smaller screens.
-
-🛠 Setup Instructions
-
-Follow these steps to run the project locally.
-
-1. Clone the repository
+### **1. Clone the repository**
+```sh
 git clone https://github.com/your-username/frontend-intern-assignment.git
 cd frontend-intern-assignment
+```
 
 2. Install dependencies
+```sh
 npm install
+```
 
-3. Start development server
+3. Start the development server
+```sh
 npm run dev
-
-
-Vite will provide a local URL, usually:
-
+```
+Local dev server will start at:
+```sh
 http://localhost:5173
+```
+---
 
-4. Build for production
-npm run build
+# 🚀 Tech Stack
 
-5. Preview production build
-npm run preview
+| Layer | Technology |
+|-------|------------|
+| **Frontend Framework** | React + TypeScript |
+| **Bundler** | Vite |
+| **Styling** | Tailwind CSS |
+| **Animations** | Framer Motion (optional) |
+| **Icons & Shapes** | Custom SVGs |
+| **Graphics** | GIF assets extracted from Figma |
+| **Deployment** | Vercel |
 
-📐 Assumptions Made
+---
 
-The quiz will always have 4 questions, matching the Figma design
+# 🎨 Features Implemented
 
-The UI is primarily for desktop screens (Figma design dimensions 1920px canvas)
+### ✅ **1. Pixel-Perfect UI from Figma**
+- Exact sizing, spacing, gradients, shadows, and typography  
+- Outer gradient background  
+- Large rounded frame  
+- Main quiz card: **1542 × 856px**, 42px border-radius  
+- Custom SVG “Best of Luck!” speech bubble  
+- Paw GIF positioned accurately  
+- Gradient italic header text  
 
-Speech bubble and paw graphic were interpreted and rebuilt using SVG + GIF
+---
 
-No backend or API integration was required; all data is local
+### ✅ **2. Interactive Multi-Step Quiz**
+- Each question shows on its **own screen**  
+- Navigation logic as per assignment:
+  - **Q1:** Back disabled (30% opacity), Next enabled  
+  - **Q2–Q3:** Back + Next active  
+  - **Q4:** Only Submit button  
+- Cannot proceed without answering  
 
-User accessibility improvements (focus rings, keyboard nav) were added where appropriate
+---
 
-Time spent was optimized for design accuracy over mobile responsiveness
+### ✅ **3. Segmented Progress Bar**
+- 4 segments representing 4 questions  
+- Each segment fills only when a question is answered  
+- Smooth transitions  
 
-⏱ Time Spent on the Assignment
-Task	Duration
-Project setup (Vite, Tailwind, structure)	30 min
-Building layout & card structure	1.5 hrs
-Pixel-perfect styling, gradients, shadows	2 hrs
-Quiz logic (state, navigation, validation)	1.5 hrs
-Progress bar + animations	45 min
-Result screen implementation	30 min
-Debugging, refinement, cleanup	1 hr
-Total Time Spent	7–8 hours
+---
+
+### ✅ **4. Result Screen**
+- Score out of total questions  
+- Optional animated percentage  
+- “Start Over” button resets everything  
+
+---
+
+### ✅ **5. Accessibility**
+- Keyboard navigation  
+- Focus rings for interactive elements  
+- Proper ARIA labels  
+- High contrast text  
+
+---
+
+## 📐 Assumptions Made
+
+- The UI is optimized for **desktop screens only**, matching the Figma design.
+- The quiz contains **exactly 4 questions**, aligning with the segmented progress bar.
+- The speech bubble design was **reconstructed manually using SVG** (not a plain HTML element).
+- No backend or database is required; all data and logic are **client-side** only.
+- Colors, gradients, shadows, fonts, and spacing were taken directly from the provided Figma design (approximated where necessary for web rendering).
+
+---
+
+## ⏱ Time Spent
+
+| Task                                                 | Estimated Time |
+| ---------------------------------------------------- | -------------- |
+| Project setup (Vite, Tailwind, repo)                 | 15 min         |
+| Layout & main card structure                         | 1.5 hrs        |
+| Pixel-perfect styling (gradients/shadows/typography) | 2 hrs          |
+| Quiz logic (state, navigation, validation)           | 1.5 hrs        |
+| Progress & animations                                | 15 min         |
+| Result screen & polish                               | 30 min         |
+| Debugging & refinements                              | 1 hr           |
+| **Total (estimate)**                                 | **~7–8 hours** |
+
