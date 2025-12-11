@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import  { useMemo, useState } from "react";
 import QuestionCard from "./QuestionCard";
 import Progress from "./Progress";
 import Result from "./Result";
