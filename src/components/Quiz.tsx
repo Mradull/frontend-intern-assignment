@@ -90,7 +90,7 @@ export default function Quiz() {
           Answer all questions to see your results
         </div>
 
-        <Progress currentAnswered={answeredCount} total={total} />
+        <Progress current={answeredCount} total={total} />
       </div>
 
       {/* Question */}
